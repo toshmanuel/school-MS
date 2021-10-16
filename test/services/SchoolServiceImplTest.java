@@ -1,5 +1,6 @@
 package services;
 
+import db.SchoolDb;
 import models.School;
 import models.SchoolType;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,10 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class SchoolServiceImplTest {
 
     private SchoolService service;
+    private SchoolDb schoolDb;
 
     @BeforeEach
     void setUp() {
-        service = new SchoolServiceImpl();
+        schoolDb = new SchoolDb();
+        service = new SchoolServiceImpl(schoolDb);
+        System.out.println(schoolDb);
     }
 
     @Test
@@ -38,9 +42,13 @@ class SchoolServiceImplTest {
                 SchoolType.ELEMENTARY
         );
         assertEquals(3, school3.getId());
-        service.add(school1);
-        service.add(school2);
-        service.add(school3);
+//        service.add(school1);
+//        service.add(school2);
+//        service.add(school3);
+
+        service.addAll(school1, school2, school3);
+
+        assertEquals(3, schoolDb.getAll().size());
 
 
 

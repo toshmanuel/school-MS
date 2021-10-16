@@ -11,7 +11,13 @@ import java.util.List;
 // TODO: 10/16/21 https://www.readme.so
 
 public class SchoolServiceImpl implements SchoolService {
-    private SchoolDb schoolDb;
+    private final SchoolDb schoolDb;
+
+    public SchoolServiceImpl(SchoolDb schoolDb) {
+        this.schoolDb = schoolDb;
+        System.out.println(schoolDb);
+    }
+
     @Override
     public void add(School school) {
         schoolDb.add(school);

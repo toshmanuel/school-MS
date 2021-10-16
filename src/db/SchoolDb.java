@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SchoolDb {
-    private List<School> schools = new ArrayList<>();
+    private final List<School> schools = new ArrayList<>();
 
     public void add(School school) {
         schools.add(school);
