@@ -6,6 +6,10 @@ import models.School;
 
 import java.util.List;
 
+// TODO: 10/16/21 https://www.github.com/toshmanuel/school-MS.git
+// TODO: 10/16/21 https://codeburst.io/solid-design-principle-using-swift-fa67443672b8 
+// TODO: 10/16/21 https://www.readme.so
+
 public class SchoolServiceImpl implements SchoolService {
     private SchoolDb schoolDb;
     @Override
@@ -39,4 +43,12 @@ public class SchoolServiceImpl implements SchoolService {
     public List<School> getAll() {
         return schoolDb.getAll();
     }
+
+    @Override
+    public void addAll(School... schools) {
+        for (School sch : schools){
+            schoolDb.add(sch);
+        }
+    }
+
 }
